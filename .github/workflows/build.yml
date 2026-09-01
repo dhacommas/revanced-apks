@@ -24,6 +24,13 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
+      
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install python deps for apk_fetch.py
+        run: pip install curl_cffi
 
       - name: Update config
         if: ${{ inputs.from_ci }}
